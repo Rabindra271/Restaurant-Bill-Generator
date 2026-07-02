@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Bill Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div>
+            <p class="eyebrow">Restaurant Billing</p>
+            <h1>🍽 Fresh Bite Cafe</h1>
+            <p class="subtitle">Craft a polished bill, print it instantly, or save it as a premium PDF receipt.</p>
+        </div>
+        <div class="chip">Live Summary</div>
+    </div>
+
+    <div class="selection">
+        <select id="menu">
+            <option value="">Select Item</option>
+        </select>
+
+        <input type="number" id="qty" placeholder="Quantity" min="1" value="1">
+
+        <button class="primary" onclick="addItem()">Add Item</button>
+    </div>
+
+    <div class="bill-sheet">
+        <div class="bill-header">
+            <div>
+                <p class="bill-eyebrow">Restaurant Receipt</p>
+                <h2>🍽 Fresh Bite Cafe</h2>
+            </div>
+            <div class="bill-meta">
+                <p>Date: <span id="billDate"></span></p>
+                <p>Receipt #: <span>1001</span></p>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="billBody"></tbody>
+            </table>
+        </div>
+
+        <div class="summary-card">
+            <div class="summary">
+                <p>Subtotal : ₹ <span id="subtotal">0</span></p>
+                <p>GST (18%) : ₹ <span id="gst">0</span></p>
+                <h2>Grand Total : ₹ <span id="grandTotal">0</span></h2>
+            </div>
+
+            <div class="action-row">
+                <button class="secondary" onclick="printBill()">🖨 Print Bill</button>
+                <button class="secondary" onclick="downloadBill()">⬇ Download Bill</button>
+                <button class="danger" onclick="clearBill()">Clear Bill</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
